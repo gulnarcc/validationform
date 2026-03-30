@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+.democlass{
+    background:red;
+    padding:10px;
+}
+    </style>
+</head>
+
+<body>
+
+<ul id="mylist"></ul>
+<button type="button" id="add">Add</button>
+<input type="text" id="myinput">
+<ul id="todolist">
+
+</ul>
+
+<p id="demo"></p>
+<ul id="todolist1">
+<li>1111</li>
+<li>1111</li>
+<li>1111</li>
+<li>1111</li>
+</ul>
+<script>
+
+let mylist=document.querySelector("#mylist")
+let add=document.querySelector("#add")
+let myinput=document.querySelector("#myinput")
+
+
+add.addEventListener("click", function(){
+    
+let li=document.createElement("li")
+let span=document.createElement("span")
+let button=document.createElement("button")
+button.innerText="delete"
+button.setAttribute("class", "democlass"); 
+li.append(span)
+li.append(button)
+span.innerText=myinput.value
+mylist.append(li)
+
+})
+
+let demo=document.querySelector("#demo")
+
+/* let element=event.currentTarget
+element.remove() */
+
+let buttons=document.querySelectorAll(".todolist1 li ")
+
+for(let i=0; i<buttons.length; i++){
+
+this.addEventListener("click", function(){
+    ///this.parentElement.remove()
+    alert("lll")
+})
+
+}
+
+
+
+
+/* mylist.addEventListener("click", function(e){
+
+if(e.target.classList.contains("democlass")){
+e.target.parentElement.remove()
+}
+
+}) */
+
+
+</script>
+
+</body>
+</html>

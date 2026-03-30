@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+#s1{
+    width:0%;
+    height:2vw;
+    background: red;
+}
+
+#s1count{
+    position:absolute;
+    top:-35px;
+    left:0;
+    font-size:2vw;
+    color:red;
+}
+
+.skills{
+    position:relative;
+    background:#ccc;
+    width:100%;
+}
+
+        </style>
+    </head>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The setInterval() Method</h2>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<div class="skills">
+<div id="s1count"></div>
+<div id="s1"></div>
+</div>
+
+
+
+
+
+<script>
+/* setInterval(myTimer, 1000);
+
+function myTimer() {
+  const date = new Date();
+  document.getElementById("demo").innerHTML =
+   date.toLocaleTimeString();
+}
+
+const date=new Date()
+document.getElementById("demo1").innerHTML =
+   date.toLocaleTimeString(); */
+
+
+   
+
+let count = 0
+
+let interval = setInterval(function(){
+
+    if(count >= 50){
+        clearInterval(interval)
+        
+    } else {
+        count++
+        s1.style.width = count + "vw"
+        s1count.innerText =count +"%"
+        s1count.style.left=count+"%"
+    }
+
+
+
+}, 50)
+
+
+let n1=0
+let ninterval=(setInterval(function(){
+
+    if(n1>=160){
+      clearInterval(ninterval)
+    }else{
+       n1++ 
+demo1.innerText=n1
+    }
+
+}), 7000)
+
+
+</script>
+
+
+
+</body>
+</html>

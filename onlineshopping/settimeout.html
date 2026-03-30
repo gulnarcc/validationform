@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The setTimeout() Method</h2>
+
+<input type="text" id="txt">
+<script>
+let timeout;
+
+
+  timeout = setTimeout(alertFunc, 3000);
+
+function alertFunc() {
+  alert("Hello!");
+}
+</script>
+
+<script>
+let x = document.getElementById("txt");
+setTimeout(function(){ x.value="2 seconds" }, 2000);
+setTimeout(function(){ x.value="4 seconds" }, 4000);
+setTimeout(function(){ x.value="6 seconds" }, 6000);
+</script>
+</body>
+</html>

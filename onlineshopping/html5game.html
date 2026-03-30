@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body{
+    background-color: aliceblue;
+    }
+
+.red{
+   border:3px solid red;
+}
+
+.green{
+   border:3px solid green;
+}
+.main1{
+    position:relative;
+    right:0;
+    top:0;
+    background-color: aliceblue;
+    width:80%;
+    height:90vh;
+    display:block;
+    
+}
+
+
+.m1{
+animation: my1 1s forwards;
+}
+
+@keyframes my1 {
+  from {right:0; display:block;}
+  to {right: -100%;  display:none;}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<audio id="errorSound">
+  <source src="sounderror.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="greenSound">
+  <source src="soundgreen.mp3" type="audio/mpeg">
+</audio>
+<div class="main1" id="main1">
+<form>
+<input type="text" class="myform">
+<input type="text" class="myform">
+<input type="text" class="myform">
+<input type="text" class="myform">
+
+<button type="button" id="save">save</button>
+<h2>WORDS</h2>
+<div id="words">
+<span data-name="My">My</span>
+<span data-name="name">Ali</span>
+<span data-name="is">is</span>
+<span data-name="Ali">name</span>
+</div>
+
+</form>
+</div>
+
+<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+<script>
+
+let myform = document.querySelectorAll(".myform");
+let words = document.querySelectorAll("#words span");
+let save = document.querySelector("#save");
+let audio = document.querySelector("#errorSound");
+let greenSound = document.querySelector("#greenSound");
+
+
+save.addEventListener("click", function(){
+
+let hasError = false;
+
+for(let i = 0; i < myform.length; i++){
+
+myform[i].classList.remove("red","green");
+
+let dataValue = words[i].dataset.name;
+let inputValue = myform[i].value;
+
+if(inputValue === dataValue){
+
+myform[i].classList.add("green");
+
+}else{
+
+myform[i].classList.add("red");
+hasError = true;
+
+}
+
+}
+
+if(hasError){
+
+audio.currentTime = 0;
+audio.play();
+
+} else{
+greenSound.currentTime=0
+greenSound.play();
+}
+
+let main1 = document.querySelector("#main1");
+
+setTimeout(function(){
+main1.classList.add("m1")
+
+},800)
+
+
+
+
+
+
+});
+
+</script>
+
+</body>
+</html>

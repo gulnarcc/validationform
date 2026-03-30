@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            span{
+                padding:10px;
+            }
+        </style>
+    </head>
+<body>
+<button type="button" 
+onclick="document.getElementById('demo').innerHTML = 'HTML' ">
+Lesson1
+</button>
+
+
+<button type="button" 
+onclick="document.getElementById('demo1').innerHTML = 'CSS' ">
+Lesson2
+</button>
+
+
+<button type="button" 
+onclick="document.getElementById('demo2').innerHTML = 'Javascript' ">
+Lesson3
+</button>
+<div>
+<span id="demo"> </span><span id="demo1"> </span><span id="demo2"> </span>
+
+</div>
+<h2 id="demo3"></h2>
+
+
+<script>
+let y=prompt('Input USD:')
+let x;
+const d=1.7;
+x=y*d;
+document.getElementById("demo3").innerHTML = 'Summ  ' + x + '  Manat';
+//document.write("salam")
+//alert("Lesson2")
+//console.log("lesson3 JS")
+</script>
+
+</body>
+</html>
