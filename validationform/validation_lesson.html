@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation form</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<style>
+.red{
+    border:1px solid red;
+}
+
+.green{
+    border:2px solid green;
+}
+</style>
+
+
+</head>
+<body>
+<form id="myForm">
+<input type="text"  id="email" class="animate__animated " placeholder="email"><br>
+<input type="text"  id="repeatemail" placeholder="repet email"><br>
+<input type="text"  id="phone" placeholder="Phone"><br>
+<input type="checkbox" id="myCheck"><span><a href="#">Soqlashenie</a></span><br>
+<button type="submit" >send</button><br>
+<p  id="demo"></p>
+</form> 
+<script>
+/* function myFunction(event){
+let element=event.target
+alert(element.tagName)
+} */
+
+let myForm=document.querySelector("#myForm")
+myForm.addEventListener( "submit", function(event){
+  event.preventDefault();
+//alert("test")
+let email=document.querySelector("#email")
+let repeatemail=document.querySelector("#repeatemail")
+let phone=document.querySelector("#phone")
+let messagetext=document.querySelector("#demo")
+let message=""
+let myCheck=document.querySelector("#myCheck")
+
+
+
+let emailPattern = /[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
+let phonePattern = /[0-9]{2}[0-9]{3}[0-9]{4}/;
+
+if(!myCheck.checked){
+    message +="Prochitayte soqlashenie<br>"
+}
+
+
+
+if(email.value.match(emailPattern)){
+    email.classList.add("green")
+    email.classList.remove("red")
+   // alert("yes")
+}else{
+    // alert("no")
+    email.classList.remove("green")
+    email.classList.add("red")
+    email.classList.add("animate__bounce")
+    
+    message += "Email not correct<br>";
+}
+
+
+if(phone.value.match(phonePattern)){
+    phone.classList.add("green")
+    phone.classList.remove("red")
+   // alert("yes")
+}else{
+    // alert("no")
+    phone.classList.remove("green")
+    phone.classList.add("red")
+    message += "Phone not correct<br>";
+}
+
+
+  if(repeatemail.value === email.value && repeatemail.value !== "" ){
+
+    repeatemail.classList.add("green")
+    repeatemail.classList.remove("red")
+  } else{
+
+    repeatemail.classList.add("red")
+    repeatemail.classList.remove("green")
+      message += "Repeted Email not correct<br>";
+  }
+
+if(email.value=="" && repeatemail.value=="" && phone.value=="" ){
+message ="Zapolnite form"
+}
+
+
+if(message!==""){
+
+    messagetext.innerHTML=message
+  
+} else{
+     messagetext.innerHTML="ushpeshno" 
+}
+
+})
+
+/* 
+
+<script>
+function myFunction(event) { 
+  const element = event.target;
+  document.getElementById("demo").innerHTML = "Вызвано " + element.tagName;
+}
+
+
+  // regex
+  let emailPattern = /[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
+  let phonePattern = /[0-9]{2}[0-9]{3}[0-9]{4}/;
+
+  //
+  messagetext.innerHTML = "";
+
+  // EMAIL
+  if(email.value.match(emailPattern)){
+    email.classList.add("green");
+    email.classList.remove("red");
+  } else {
+    email.classList.add("red");
+    email.classList.remove("green");
+    message += "Email səhvdir<br>";
+  }
+
+  // REPEAT EMAIL (yalnız email düzgündürsə yoxla)
+  if(repeatEmail.value === email.value && repeatEmail.value !== "" && email.value.match(emailPattern)){
+    repeatEmail.classList.add("green");
+    repeatEmail.classList.remove("red");
+  } else {
+    repeatEmail.classList.add("red");
+    repeatEmail.classList.remove("green");
+    message += "Email uyğun deyil<br>";
+  }
+
+  // PHONE
+  if(phone.value.match(phonePattern)){
+    phone.classList.add("green");
+    phone.classList.remove("red");
+  } else {
+    phone.classList.add("red");
+    phone.classList.remove("green");
+    message += "Telefon səhvdir<br>";
+  }
+
+  // Əgər error varsa göstər
+  if(message !== ""){
+    messagetext.innerHTML = message;
+  } else {
+    messagetext.innerHTML = "Qeydiyyat uğurludur";
+  }
+
+});
+ */
+
+</script>
+
+</body>
+</html>
